@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     Context context = getBaseContext();
 
     long start = System.currentTimeMillis();
-    String sampleFilePath = "samples/jfk.wav";
+    // String sampleFilePath = "samples/jfk.wav";
+    String sampleFilePath = "samples/samples_jfk.wav";
     File filesDir = context.getFilesDir();
     File sampleFile = AssetUtils.copyFileIfNotExists(context, filesDir, sampleFilePath);
     long end = System.currentTimeMillis();
