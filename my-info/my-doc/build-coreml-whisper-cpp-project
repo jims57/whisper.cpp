@@ -1,0 +1,45 @@
+Based on the CMake output, there are a few warnings but no critical errors that would prevent the build. Let's address the warnings:
+CMake Version Warning:
+The first warning is about CMake version compatibility. This is just a deprecation warning and not an error. To fix it, you should update the cmake_minimum_required version in the CMakeLists.txt file.
+ccache Warning:
+There's a warning about ccache not being found. This is optional and only affects build speed. You can install ccache if you want faster compilation:
+ccache
+OpenMP Warning:
+OpenMP was not found, which might affect performance but won't prevent building. If you want to use OpenMP, you can install it:
+libomp
+The good news is that:
+The build configuration completed successfully
+CoreML framework was found (which is what you specifically enabled with -DWHISPER_COREML=1)
+Metal framework was found
+BLAS/Accelerate framework was found
+You can proceed with the build by running:
+build
+The warnings won't prevent the project from building and running, but if you want optimal performance, you might want to install OpenMP.
+relation between BLAS and Metal, should i use both?
+
+Let me explain the relationship between BLAS and Metal in the context of whisper.cpp:
+BLAS (Basic Linear Algebra Subprograms)
+Traditional CPU-based optimization library
+Part of Apple's Accelerate framework
+Optimized for matrix/vector operations on CPU
+Well-established, stable performance
+Uses CPU resources
+Metal
+Apple's GPU programming framework
+Can be significantly faster for parallel computations
+Uses GPU resources
+Better for large-scale matrix operations
+Lower power consumption for same workload
+Should you use both?
+whisper.cpp is designed to automatically choose the best backend for different operations
+Having both available gives the library more flexibility
+Metal will be used for operations that benefit from GPU acceleration
+BLAS will handle operations that are better suited for CPU
+There's no conflict between them - they complement each other
+Recommendation:
+Keep both enabled because:
+Different model sizes and operations benefit from different backends
+2. The library will automatically use the most efficient backend for each operation
+If you're running on a Mac, both are already part of the system (no extra installation needed)
+Having both gives you the best performance across different scenarios
+The only reason to disable one would be if you're trying to benchmark or specifically test one backend's performance.

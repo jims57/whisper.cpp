@@ -1,0 +1,45 @@
+These are two different model file formats for Whisper's encoder:
+
+coreml-encoder-base.en.mlpackage:
+- CoreML model format used on Apple devices (iOS, macOS)
+- Recommended for:
+  - iPhones (iPhone 8 and later with Neural Engine)
+  - iPads with Neural Engine
+  - Mac computers with Apple Silicon (includes Neural Engine)
+  - Mac computers with Intel processors running macOS 11+ (no Neural Engine, uses CPU only)
+- Contains the encoder part of Whisper base.en model
+- Optimized for Apple Neural Engine (ANE)
+- Even with ANE support, you may still want to include ggml-base.en-encoder.mlmodelc as a fallback:
+    because:The ggml-base.en-encoder.mlmodelc file is optimized for CPU inference, while coreml-encoder-base.en.mlpackage supports Neural Engine:
+  - In case CoreML initialization fails
+  - For better performance testing/comparison
+  - To support older iOS versions that may not fully utilize ANE
+
+To check if a device supports CoreML:
+- For iOS devices:
+  - iOS 11 or later supports CoreML
+  - iPhone 6s and later support CoreML
+  - Check if device has Neural Engine (iPhone 8 and later)
+  - Use [MLModel.compileModel(at:)] to test if model can be loaded
+  - Check system info using UIDevice.current.systemVersion
+  
+ggml-base.en-encoder.mlmodelc:
+- GGML model format used by whisper.cpp
+- Contains the encoder part of Whisper base.en model
+- Optimized for CPU inference
+- Quantized and compressed format for efficient inference
+- Used when CoreML is not available or on non-Apple devices
+- Used as fallback on Apple devices if CoreML initialization fails
+- Used when running on Apple devices without Neural Engine support
+
+For iOS with CoreML support:
+- You only need the CoreML model file (coreml-encoder-base.en.mlpackage)
+- The GGML file is not needed when using CoreML
+- whisper.cpp will automatically use the CoreML model when available on Apple devices
+- CoreML models will provide better performance on iOS devices by leveraging the Neural Engine
+
+For Android with TensorFlow Lite support:
+- You only need the GGML model file (ggml-base.en-encoder.mlmodelc)
+- The CoreML file is not needed when using TensorFlow Lite
+- whisper.cpp will automatically use the GGML model when available on Android devices
+- GGML models will provide better performance on Android devices by leveraging the CPU and GPU

@@ -1,0 +1,51 @@
+Real-time Whisper.cpp Implementation for macOS
+Approach 1: Using SDL2 (Similar to Original Example)
+Installation Steps
+brew install sdl2
+Command line options:
+-m: path to the model file
+-t: number of threads
+--step: audio capture step in milliseconds (500ms default)
+--length: audio context size in milliseconds (5000ms default)
+Approach 2: Using AVFoundation (Native macOS)
+Required Info.plist Entry
+>
+Implementation Code
+}
+end
+end
+Key Considerations for macOS Implementation:
+Request microphone permissions at runtime
+Handle audio session routing
+Consider energy impact and CPU usage
+Implement proper error handling
+Consider accessibility features
+Handle sleep/wake cycles
+Consider menu bar integration options
+Performance Considerations:
+CPU usage monitoring
+Memory management
+Power consumption
+Thermal throttling awareness
+Activity monitoring
+Background vs. foreground processing
+Additional macOS Features to Consider:
+Menu bar status item
+Global keyboard shortcuts
+System preferences integration
+Notification Center widgets
+Spotlight integration
+Services menu integration
+Background operation support
+For most users, Approach 1 (SDL2) is recommended due to:
+Simpler implementation
+Already tested and working
+Cross-platform compatibility
+Minimal setup required
+Official support from whisper.cpp
+Choose Approach 2 (AVFoundation) if you need:
+Deeper system integration
+More native macOS experience
+Custom UI requirements
+Advanced audio processing features
+Both approaches provide real-time transcription capabilities, differing mainly in integration and user experience rather than core functionality.
