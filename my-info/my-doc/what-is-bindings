@@ -1,0 +1,19 @@
+n whisper.cpp, "Bindings" typically refers to programming interfaces that allow the C++ whisper.cpp library to be used from other programming languages. Bindings act as a bridge or wrapper that makes the core whisper.cpp functionality accessible in languages like Python, JavaScript, C#, Rust, etc.
+Here's what bindings do:
+Language Interoperability: They allow developers to use whisper.cpp's speech recognition capabilities in their preferred programming language without having to write C++ code directly.
+API Translation: Bindings translate function calls, data structures, and types between the native C++ code and the target programming language.
+Memory Management: They often handle memory management between the C++ core and the host language, ensuring proper allocation and cleanup of resources.
+Some examples of whisper.cpp bindings:
+whisper.cpp/bindings/python: Allows using whisper.cpp in Python
+whisper.cpp/bindings/nodejs: For using whisper.cpp in Node.js applications
+whisper.cpp/bindings/ruby: For Ruby applications
+whisper.cpp/bindings/go: For Go programs
+These bindings make whisper.cpp more accessible to developers who work primarily in other languages while still maintaining the performance benefits of the C++ implementation.
+For example, if you're a Python developer, instead of having to work with the C++ code directly, you can use the Python bindings to do something like:
+
+import whisper_cpp
+
+model = whisper_cpp.Model("path/to/model.bin")
+result = model.transcribe("audio.wav")
+
+The bindings handle all the complex C++ interactions behind the scenes while providing a familiar interface in the target language.

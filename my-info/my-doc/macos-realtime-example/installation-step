@@ -1,0 +1,16 @@
+# Install SDL2
+brew install sdl2
+
+# Build whisper.cpp with SDL2
+cmake -B build -DWHISPER_SDL2=ON
+cmake --build build --config Release
+
+# Run stream example
+./build/bin/whisper-stream -m ./models/ggml-base.en.bin -t 8 --step 500 --length 5000
+
+
+Command line options:
+-m: path to the model file
+-t: number of threads
+--step: audio capture step in milliseconds (500ms default)
+--length: audio context size in milliseconds (5000ms default)

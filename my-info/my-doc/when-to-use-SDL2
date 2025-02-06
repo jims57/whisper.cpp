@@ -1,0 +1,27 @@
+# SDL2 Usage Guide
+
+SDL2 (Simple DirectMedia Layer 2) is a cross-platform development library designed to provide low-level access to audio, keyboard, mouse, joystick, and graphics hardware. It's widely used in game development and multimedia applications.
+
+## Device Compatibility
+
+### Desktop Operating Systems
+- Ubuntu and other Linux distributions
+- Windows 
+- macOS
+
+### Mobile Devices
+This specific example using SDL2 is primarily designed for desktop systems.
+
+For iOS and Android, you would need different implementations:
+- iOS would typically use AVAudioEngine
+- Android would use AudioRecord or other native audio APIs
+
+## Implementation Details
+The example shown in the file is specifically a desktop implementation using SDL2 for audio capture. While whisper.cpp itself can run on mobile devices, this particular real-time audio example would need to be modified to use platform-specific audio capture methods for iOS or Android.
+
+### Mobile Implementation Options
+- For iOS: Check out whisper.objc
+- For Android: Use the NDK and implement audio capture using Android's native audio APIs
+
+## Compilation Flag
+The `-DWHISPER_SDL2=ON` flag specifically enables SDL2 support during compilation, which is required for this real-time audio capture example.

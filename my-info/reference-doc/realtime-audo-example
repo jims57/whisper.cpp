@@ -1,0 +1,5 @@
+This is a naive example of performing real-time inference on audio from your microphone. The stream tool samples the audio every half a second and runs the transcription continuously. More info is available in issue #10.
+
+cmake -B build -DWHISPER_SDL2=ON
+cmake --build build --config Release
+./build/bin/whisper-stream -m ./models/ggml-base.en.bin -t 8 --step 500 --length 5000

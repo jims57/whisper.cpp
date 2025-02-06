@@ -1,0 +1,51 @@
+# Acceleration Support Guide
+
+Let me break down each acceleration support and where they can be used:
+
+## POWER VSX Intrinsics
+- For IBM POWER processors
+- Used in IBM servers and workstations 
+- Not for mobile or regular consumer devices
+
+## Core ML Support
+- Apple devices only
+- MacOS (M1/M2 Macs)
+- iOS devices (iPhones, iPads)
+- Uses Apple's Neural Engine
+
+## OpenVINO Support
+- Intel processors
+- Windows and Linux systems
+- Not for mobile devices
+- Optimized for Intel CPUs and integrated GPUs
+
+## NVIDIA GPU Support
+- Systems with NVIDIA GPUs
+- Windows, Linux, MacOS (older versions)
+- Not for mobile devices
+- Requires CUDA toolkit
+
+## Vulkan GPU Support
+- Cross-platform GPU acceleration
+- Works on most modern GPUs (NVIDIA, AMD, Intel)
+- Android devices (some models)
+- Not for iOS
+
+## BLAS CPU Support via OpenBLAS
+- Cross-platform CPU acceleration
+- Works on most desktop/laptop CPUs
+- Linux, Windows, MacOS
+- Not typically used on mobile
+
+## Ascend NPU Support
+- Huawei's Neural Processing Unit
+- Huawei devices and servers
+- Some Huawei mobile devices
+- Not for other manufacturers
+
+## Quick Reference by Platform:
+- iOS: Use Core ML
+- Android: Use Vulkan  
+- Mac: Use Core ML (M1/M2) or OpenBLAS (Intel)
+- Windows: Use NVIDIA (if you have NVIDIA GPU) or OpenBLAS
+- Linux: Use NVIDIA, OpenBLAS, or Vulkan depending on your hardware
