@@ -21,6 +21,6 @@
 1. 模型越小，速度越快，但精确度更差。这类模型，合适用于低端手机。
 2. 模型越大，速度越慢，精确度更好。这类模型，合适用于比较高端的手机。
 3. 开发时，你先从模型小的开始测试，以便测试。
-4. 不管是哪种模型
-4. 关于选择哪些模型的逻辑，后台会根据传参自动选择，并提供下载链接。
-5. 下载模型的流程图，见：<a href="https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE" target="_blank">https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE</a>
+4. 不管是哪种模型，如果要保证推理速度，都要保证设备（如iPhone）有GPU或ANE，否则速度会很慢。所以，你最好在代码中检查设备是否有GPU或ANE。如果没有，则自动选择最小的模型（tiny或tiny.en）。
+5. 关于选择哪些模型的逻辑，后台会根据传参自动选择，并提供下载链接。
+6. 下载模型的流程图，见：<a href="https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE" target="_blank">https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE</a>
