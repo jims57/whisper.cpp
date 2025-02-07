@@ -40,6 +40,10 @@
 ## 5.说中文时，默认显示为【繁体字】。需要开发者，用相应的库，转为【简体字】。
 <img width="330" alt="image" src="https://github.com/user-attachments/assets/f88e4f5a-cea8-40e7-872b-98605444f6d1" />
 
+## 6.如果Xcode缺少模型，请联系Jimmy。
+<img width="449" alt="image" src="https://github.com/user-attachments/assets/7d33d1c5-3ce3-494f-8ea3-a5de7742c9f6" />
+
+
 
 
 # 语言编码（共99种语言）：
