@@ -25,6 +25,9 @@
 # 开发注意事项：
 1. 测试多语言模型（如tiny、small等没有.en后缀的模型）时，记得要对应修改语言编码。
 <img width="1096" alt="image" src="https://github.com/user-attachments/assets/784bb829-4699-42e3-9bed-adcbfffdf38a" />
+2.发布时，不要把模型放到项目中，防止App太大。
+<img width="955" alt="image" src="https://github.com/user-attachments/assets/dd486658-2509-400b-a645-04c5bd65962d" />
+
 
 # 语言编码（共99种语言）：
 | 代码 | 语言 |
