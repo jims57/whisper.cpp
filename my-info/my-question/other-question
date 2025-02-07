@@ -1,0 +1,5 @@
+ // Using bundlePath + stringByAppendingPathComponent:
+ NSString *modelPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"models/ggml-tiny.bin"];
+ 
+ // Using pathForResource:ofType: (preferred method)
+ NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-tiny" ofType:@"bin"];
