@@ -1,0 +1,40 @@
+The .mlmodelc file (ggml-base.en-encoder.mlmodelc) is being loaded and is crucial for the inference process on iOS devices. Here's why:
+The .mlmodelc is a compiled Core ML model format:
+When a .mlmodel file is added to an Xcode project, it gets compiled into a .mlmodelc directory
+This compiled format is optimized for running on Apple's Neural Engine and GPU
+In this case, the encoder part of the Whisper model has been converted to Core ML format to take advantage of hardware acceleration on iOS devices:
+The original GGML model (ggml-base.en.bin) is still needed for other parts of the model because:
+- Only the encoder portion has been converted to Core ML format
+- The decoder part of Whisper still runs using the original GGML implementation
+- Other model components like the tokenizer and language model also require the original GGML weights
+- This hybrid approach allows optimal performance by using Core ML acceleration for the encoder while keeping full model functionality through GGML
+
+The encoder, which is one of the most computationally intensive parts, runs through Core ML:
+Yes, the ggml-base.en-encoder.mlmodelc file is specifically for the encoder part of the model. During inference, only the encoder computations are handled by Core ML through this file, while other parts like the decoder still use the original GGML implementation
+
+This is why you see both files being loaded in the logs
+The subsequent log messages confirm the Core ML model is being used:
+loaded
+This hybrid approach (using both GGML and Core ML) is designed to optimize performance on iOS devices by leveraging Apple's Neural Engine while maintaining compatibility with the full Whisper model architecture.
+
+
+
+The .mlmodelc file exists specifically for the encoder part of the Whisper model because:
+Hardware Acceleration: The encoder has been converted to Core ML format (.mlmodelc) to take advantage of Apple's specialized hardware:
+Neural Engine
+GPU
+Other Apple-specific optimizations
+Hybrid Approach: The model uses a split architecture:
+Encoder → Core ML format (.mlmodelc)
+Decoder → Original GGML format (.bin)
+Performance Optimization: This split was chosen because:
+The encoder is one of the most computationally intensive parts
+
+
+Converting it to Core ML format allows it to run much faster on iOS devices
+The decoder and other components remain in GGML format for compatibility and functionality
+Converting it to Core ML format allows it to run on Apple's Neural Engine (ANE) and GPU for hardware acceleration, while GGML format typically runs on CPU only
+The decoder and other components remain in GGML format which means they run on CPU, unless Metal GPU acceleration is explicitly enabled
+
+
+So yes, the .mlmodelc file exists solely to provide an optimized, hardware-accelerated version of the encoder portion of the model, while the rest of the model continues to use the original GGML implementation.

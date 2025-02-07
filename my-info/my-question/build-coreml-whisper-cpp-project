@@ -43,3 +43,35 @@ Different model sizes and operations benefit from different backends
 If you're running on a Mac, both are already part of the system (no extra installation needed)
 Having both gives you the best performance across different scenarios
 The only reason to disable one would be if you're trying to benchmark or specifically test one backend's performance.
+
+These three files serve different purposes during the inference process:
+
+1. base.en.bin
+- This is the original GGML model file containing all model weights and parameters
+- Used for the decoder part and other components like tokenizer and language model
+- Runs on CPU (or GPU if Metal is enabled)
+- Required for full model functionality
+
+2. ggml-base.en-encoder.mlmodelc 
+- This is the compiled Core ML model for just the encoder portion
+- Generated from the original model for hardware acceleration
+- Used specifically during the encoder inference phase
+- Runs on Apple Neural Engine (ANE) and GPU via Core ML
+- Provides significant speedup for encoder computations
+
+3. coreml-encoder-base.en.mlpackage
+- This is the uncompiled Core ML model source
+- Used as an intermediate format when creating the .mlmodelc file
+- Not used during actual inference
+- Can be used to inspect the model architecture or make modifications
+
+During inference:
+1. Encoder phase uses the .mlmodelc file on ANE/GPU if available, otherwise falls back to CPU using the base.en.bin file
+2. Decoder phase uses the .bin file on CPU by default, but will use GPU if Metal is explicitly enabled by adding the -DGGML_USE_METAL compiler flag when building the project
+3. Other model components use the base.en.bin file
+
+
+
+
+/Users/mac/Documents/GitHub/whisper.cpp/models/coreml-encoder-tiny.en.mlmodelc/coremldata.bin
+models/coreml-encoder-tiny.en.mlmodelc -> models/ggml-tiny.en-encoder.mlmodelc
