@@ -42,7 +42,8 @@
 ## 6.如果Xcode缺少模型，请联系Jimmy。
 <img width="449" alt="image" src="https://github.com/user-attachments/assets/7d33d1c5-3ce3-494f-8ea3-a5de7742c9f6" />
 
-
+## 7.测试时，请使用Release模式，反应真机推理性能。
+<img width="1016" alt="image" src="https://github.com/user-attachments/assets/5636a06d-e2e4-4da1-baf2-2548478eb306" />
 
 
 # 三、语言编码（共99种语言）：
