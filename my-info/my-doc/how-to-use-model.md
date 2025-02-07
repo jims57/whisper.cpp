@@ -22,28 +22,30 @@
 6. 下载模型的流程图，见：<a href="https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE" target="_blank">https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE</a>
 
 # 二、开发注意事项：
-## 1. 测试多语言模型（如tiny、small等没有.en后缀的模型）时，记得要对应修改语言编码。
+## 1.【重要】测试时，请使用Release模式，反应真机推理性能。
+<img width="1016" alt="image" src="https://github.com/user-attachments/assets/5636a06d-e2e4-4da1-baf2-2548478eb306" />
+
+## 2. 测试多语言模型（如tiny、small等没有.en后缀的模型）时，记得要对应修改语言编码。
 <img width="1096" alt="image" src="https://github.com/user-attachments/assets/784bb829-4699-42e3-9bed-adcbfffdf38a" />
 
-## 2.发布时，不要把模型放到项目中，防止App太大。
+## 3.发布时，不要把模型放到项目中，防止App太大。
 <img width="955" alt="image" src="https://github.com/user-attachments/assets/dd486658-2509-400b-a645-04c5bd65962d" />
 
-## 3.第一次加载后，推理会比较慢，往后就会快。所以，如果你想测试速度，请以第2次（或N次）为准。
+## 4.第一次加载后，推理会比较慢，往后就会快。所以，如果你想测试速度，请以第2次（或N次）为准。
 如下是官方文档说明： 设备上的首次运行速度较慢，因为 ANE 服务会将 Core ML 模型编译为某种特定于设备的格式。后续运行速度会更快。（原文见截图）
 
 <img width="796" alt="image" src="https://github.com/user-attachments/assets/2e8bd0bd-84b4-4382-9dfd-094755d10ba2" />
 
-## 4.启用Real-time按钮，可进行实时推理。否则，要按Transcribe才会转录（非实时）。
+## 5.启用Real-time按钮，可进行实时推理。否则，要按Transcribe才会转录（非实时）。
 <img width="633" alt="image" src="https://github.com/user-attachments/assets/445d4213-a04a-4b4d-beda-1450485c0b79" />
 
-## 5.说中文时，默认显示为【繁体字】。需要开发者，用相应的库，转为【简体字】。
+## 6.说中文时，默认显示为【繁体字】。需要开发者，用相应的库，转为【简体字】。
 <img width="330" alt="image" src="https://github.com/user-attachments/assets/f88e4f5a-cea8-40e7-872b-98605444f6d1" />
 
-## 6.如果Xcode缺少模型，请联系Jimmy。
+## 7.如果Xcode缺少模型，请联系Jimmy。
 <img width="449" alt="image" src="https://github.com/user-attachments/assets/7d33d1c5-3ce3-494f-8ea3-a5de7742c9f6" />
 
-## 7.测试时，请使用Release模式，反应真机推理性能。
-<img width="1016" alt="image" src="https://github.com/user-attachments/assets/5636a06d-e2e4-4da1-baf2-2548478eb306" />
+
 
 
 # 三、语言编码（共99种语言）：
