@@ -34,7 +34,7 @@
 
 <img width="796" alt="image" src="https://github.com/user-attachments/assets/2e8bd0bd-84b4-4382-9dfd-094755d10ba2" />
 
-## 4.启用Real-time按钮，可进行实时推理。否则，要按Transcribe才可以转录。
+## 4.启用Real-time按钮，可进行实时推理。否则，要按Transcribe才会转录（非实时）。
 <img width="633" alt="image" src="https://github.com/user-attachments/assets/445d4213-a04a-4b4d-beda-1450485c0b79" />
 
 
