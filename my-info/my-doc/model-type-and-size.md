@@ -23,4 +23,4 @@
 3. 开发时，你先从模型小的开始测试，以便测试。
 4. 不管是哪种模型
 4. 关于选择哪些模型的逻辑，后台会根据传参自动选择，并提供下载链接。
-5. 下载模型的流程图，见：https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE
+5. 下载模型的流程图，见：<a href="https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE" target="_blank">https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE</a>
