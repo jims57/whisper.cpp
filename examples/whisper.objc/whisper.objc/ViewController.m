@@ -53,7 +53,7 @@ void AudioInputCallback(void * inUserData,
         // [Jimmy]关于模型名和大小说明，见：https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md
         
         // ==== 这是【英文】模型 ====
-        //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-tiny.en" ofType:@"bin"];
+        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-tiny.en" ofType:@"bin"];
         // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-base.en" ofType:@"bin"];
         // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-small.en" ofType:@"bin"];
         
@@ -62,8 +62,8 @@ void AudioInputCallback(void * inUserData,
         // 注意：使用多语言模型，在此文件的219行，修改对应的【语言编码】。
         // 细节见：https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9
         NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-tiny" ofType:@"bin"];
-        //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-base" ofType:@"bin"];
-        //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-small" ofType:@"bin"];
+        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-base" ofType:@"bin"];
+        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-small" ofType:@"bin"];
         
 
         // check if the model exists
