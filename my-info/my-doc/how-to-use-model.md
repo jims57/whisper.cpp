@@ -29,8 +29,9 @@
 ## 2.发布时，不要把模型放到项目中，防止App太大。
 <img width="955" alt="image" src="https://github.com/user-attachments/assets/dd486658-2509-400b-a645-04c5bd65962d" />
 
-## 3.第一次加载后，推理会比较慢，往后就会快。所以，如果你想测试速度，请以第2次为准。
+## 3.第一次加载后，推理会比较慢，往后就会快。所以，如果你想测试速度，请以第2次（或N次）为准。
 如下是官方文档说明： 设备上的首次运行速度较慢，因为 ANE 服务会将 Core ML 模型编译为某种特定于设备的格式。后续运行速度会更快。（原文见截图）
+
 <img width="796" alt="image" src="https://github.com/user-attachments/assets/2e8bd0bd-84b4-4382-9dfd-094755d10ba2" />
 
 
