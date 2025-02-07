@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0425B4B42D55E8B300920489 /* ggml-tiny.en-encoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 0425B4B32D55E8B300920489 /* ggml-tiny.en-encoder.mlmodelc */; };
-		0425B4B82D55F19600920489 /* ggml-tiny.en.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0425B4B72D55F19600920489 /* ggml-tiny.en.bin */; };
+		0425B4BF2D56000700920489 /* ggml-tiny-encoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 0425B4BE2D56000700920489 /* ggml-tiny-encoder.mlmodelc */; };
 		1844471A2AB211A2007D6BFE /* ggml-alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 184447182AB211A2007D6BFE /* ggml-alloc.c */; };
 		1844471C2AB21655007D6BFE /* ggml-metal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1844471B2AB21655007D6BFE /* ggml-metal.m */; settings = {COMPILER_FLAGS = "-framework Foundation -framework Metal -framework MetalKit -fno-objc-arc"; }; };
 		18627C7B29052BDF00BD2A04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18627C7A29052BDF00BD2A04 /* AppDelegate.m */; };
@@ -52,8 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0425B4B32D55E8B300920489 /* ggml-tiny.en-encoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ggml-tiny.en-encoder.mlmodelc"; path = "/Users/mac/Documents/GitHub/whisper.cpp/models/ggml-tiny.en-encoder.mlmodelc"; sourceTree = "<absolute>"; };
-		0425B4B72D55F19600920489 /* ggml-tiny.en.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = "ggml-tiny.en.bin"; path = "/Users/mac/Documents/GitHub/whisper.cpp/models/ggml-tiny.en.bin"; sourceTree = "<absolute>"; };
+		0425B4BE2D56000700920489 /* ggml-tiny-encoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ggml-tiny-encoder.mlmodelc"; path = "/Users/mac/Documents/GitHub/whisper.cpp/whisper-models/ggml-tiny-encoder.mlmodelc"; sourceTree = "<absolute>"; };
 		184447182AB211A2007D6BFE /* ggml-alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "ggml-alloc.c"; path = "../../../ggml/src/ggml-alloc.c"; sourceTree = "<group>"; };
 		184447192AB211A2007D6BFE /* ggml-alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ggml-alloc.h"; path = "../../../ggml/include/ggml-alloc.h"; sourceTree = "<group>"; };
 		1844471B2AB21655007D6BFE /* ggml-metal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ggml-metal.m"; path = "../../../ggml/src/ggml-metal/ggml-metal.m"; sourceTree = "<group>"; };
@@ -144,6 +142,7 @@
 				437B63E02D36280C002A49EC /* ggml-cpu-traits.h */,
 				437B63E12D36280C002A49EC /* ggml-cpu-traits.cpp */,
 				18F8C0C22CEDF52700CAD607 /* ggml-cpu-quants.h */,
+				0425B4BE2D56000700920489 /* ggml-tiny-encoder.mlmodelc */,
 				18F8C0C32CEDF52700CAD607 /* ggml-cpu-quants.c */,
 				18F8C0BD2CEDF50700CAD607 /* ggml-cpu.cpp */,
 				18F8C0BA2CEDF4DC00CAD607 /* ggml-threading.h */,
@@ -161,8 +160,6 @@
 				1844471D2AB2195F007D6BFE /* ggml-metal.metal */,
 				1844471B2AB21655007D6BFE /* ggml-metal.m */,
 				184447182AB211A2007D6BFE /* ggml-alloc.c */,
-				0425B4B32D55E8B300920489 /* ggml-tiny.en-encoder.mlmodelc */,
-				0425B4B72D55F19600920489 /* ggml-tiny.en.bin */,
 				184447192AB211A2007D6BFE /* ggml-alloc.h */,
 				7FE342442A0C3FA20015A058 /* coreml */,
 				18627C9729052C6600BD2A04 /* ggml.h */,
@@ -258,10 +255,9 @@
 			files = (
 				18A2760B2C2A9B43001C8D37 /* ggml-metal.metal in Resources */,
 				18627C8929052BE000BD2A04 /* LaunchScreen.storyboard in Resources */,
-				0425B4B42D55E8B300920489 /* ggml-tiny.en-encoder.mlmodelc in Resources */,
 				18627C8629052BE000BD2A04 /* Assets.xcassets in Resources */,
-				0425B4B82D55F19600920489 /* ggml-tiny.en.bin in Resources */,
 				18627C8429052BDF00BD2A04 /* Main.storyboard in Resources */,
+				0425B4BF2D56000700920489 /* ggml-tiny-encoder.mlmodelc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
