@@ -3,13 +3,13 @@
 | 模型名称 | 磁盘空间 | 内存占用 | 适用设备 | 说明 |
 |---------|----------|----------|----------|------|
 | tiny.en | 71 MB | ~390 MB | 低端手机 | 专门用于英语识别，速度比tiny快30%，精确度最低 |
-| tiny | 74 MB | ~390 MB | 低端手机 | 支持99种语言，速度最快，精确度最低。支持的语言，见[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)项 |
+| tiny | 74 MB | ~390 MB | 低端手机 | 支持99种语言，速度最快，精确度最低。支持的语言，见【[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)】项 |
 | base.en | 137 MB | ~500 MB | 中端手机 | 专门用于英语识别，速度比base快30%，精确度比tiny.en好 |
-| base | 142 MB | ~500 MB | 中端手机 | 支持99种语言，速度较快，精确度比tiny好。支持的语言，见[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)项 |
+| base | 142 MB | ~500 MB | 中端手机 | 支持99种语言，速度较快，精确度比tiny好。支持的语言，见【[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)】项 |
 | small.en | 447 MB | ~1.0 GB | 高端手机 | 专门用于英语识别，速度比small快30%，精确度均衡 |
-| small | 466 MB | ~1.0 GB | 高端手机 | 支持99种语言，速度和精确度均衡。支持的语言，见[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)项 |
-| medium | 1.5 GB | ~2.6 GB | 电脑（手机不适用） | 精确度较好，需要中端设备。支持的语言，见[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)项 |
-| large | 2.9 GB | ~4.7 GB | 电脑（手机不适用） | 精确度最好，需要高端设备。支持的语言，见[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)项 |
+| small | 466 MB | ~1.0 GB | 高端手机 | 支持99种语言，速度和精确度均衡。支持的语言，见【[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)】项 |
+| medium | 1.5 GB | ~2.6 GB | 电脑（手机不适用） | 精确度较好，需要中端设备。支持的语言，见【[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)】项 |
+| large | 2.9 GB | ~4.7 GB | 电脑（手机不适用） | 精确度最好，需要高端设备。支持的语言，见【[语言编码](https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80)】项 |
 
 备注：不带.en后缀的模型（tiny、base、small等）都支持以上所有语言
 
