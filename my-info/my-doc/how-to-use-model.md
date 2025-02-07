@@ -124,3 +124,7 @@
 | yi | 意第绪语 |
 | yo | 约鲁巴语 |
 | zh | 中文 |
+
+#开发注意事项：
+1. 测试多语言模型（如tiny、small等没有.en后缀的模型）时，记得要对应修改语言编码。
+<img width="1096" alt="image" src="https://github.com/user-attachments/assets/784bb829-4699-42e3-9bed-adcbfffdf38a" />
