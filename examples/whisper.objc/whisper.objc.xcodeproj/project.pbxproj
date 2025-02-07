@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04762C2C2D560536009DC2EA /* ggml-tiny-encoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 04762C2B2D560536009DC2EA /* ggml-tiny-encoder.mlmodelc */; };
+		04762C2D2D560536009DC2EA /* ggml-tiny.bin in Resources */ = {isa = PBXBuildFile; fileRef = 04762C2A2D560536009DC2EA /* ggml-tiny.bin */; };
 		1844471A2AB211A2007D6BFE /* ggml-alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 184447182AB211A2007D6BFE /* ggml-alloc.c */; };
 		1844471C2AB21655007D6BFE /* ggml-metal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1844471B2AB21655007D6BFE /* ggml-metal.m */; settings = {COMPILER_FLAGS = "-framework Foundation -framework Metal -framework MetalKit -fno-objc-arc"; }; };
 		18627C7B29052BDF00BD2A04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18627C7A29052BDF00BD2A04 /* AppDelegate.m */; };
@@ -50,6 +52,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04762C2A2D560536009DC2EA /* ggml-tiny.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = "ggml-tiny.bin"; path = "/Users/mac/Documents/GitHub/whisper.cpp/models/ggml-tiny.bin"; sourceTree = "<absolute>"; };
+		04762C2B2D560536009DC2EA /* ggml-tiny-encoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ggml-tiny-encoder.mlmodelc"; path = "/Users/mac/Documents/GitHub/whisper.cpp/models/ggml-tiny-encoder.mlmodelc"; sourceTree = "<absolute>"; };
 		184447182AB211A2007D6BFE /* ggml-alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "ggml-alloc.c"; path = "../../../ggml/src/ggml-alloc.c"; sourceTree = "<group>"; };
 		184447192AB211A2007D6BFE /* ggml-alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ggml-alloc.h"; path = "../../../ggml/include/ggml-alloc.h"; sourceTree = "<group>"; };
 		1844471B2AB21655007D6BFE /* ggml-metal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ggml-metal.m"; path = "../../../ggml/src/ggml-metal/ggml-metal.m"; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				18ABE1542AF556340044A204 /* ggml-quants.h */,
 				1844471D2AB2195F007D6BFE /* ggml-metal.metal */,
 				1844471B2AB21655007D6BFE /* ggml-metal.m */,
+				04762C2A2D560536009DC2EA /* ggml-tiny.bin */,
+				04762C2B2D560536009DC2EA /* ggml-tiny-encoder.mlmodelc */,
 				184447182AB211A2007D6BFE /* ggml-alloc.c */,
 				184447192AB211A2007D6BFE /* ggml-alloc.h */,
 				7FE342442A0C3FA20015A058 /* coreml */,
@@ -252,6 +258,8 @@
 			files = (
 				18A2760B2C2A9B43001C8D37 /* ggml-metal.metal in Resources */,
 				18627C8929052BE000BD2A04 /* LaunchScreen.storyboard in Resources */,
+				04762C2C2D560536009DC2EA /* ggml-tiny-encoder.mlmodelc in Resources */,
+				04762C2D2D560536009DC2EA /* ggml-tiny.bin in Resources */,
 				18627C8629052BE000BD2A04 /* Assets.xcassets in Resources */,
 				18627C8429052BDF00BD2A04 /* Main.storyboard in Resources */,
 			);
