@@ -214,7 +214,8 @@ void AudioInputCallback(void * inUserData,
         params.print_timestamps = true;
         params.print_special    = false;
         params.translate        = false;
-        params.language         = "en";
+//        params.language         = "en";
+        params.language         = "zh";
         params.n_threads        = max_threads;
         params.offset_ms        = 0;
         params.no_context       = true;
