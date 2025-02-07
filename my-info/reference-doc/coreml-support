@@ -39,6 +39,43 @@ The first run on a device is slow, since the ANE service compiles the Core ML mo
 
 For more information about the Core ML implementation please refer to PR #566.
 
-# My model files
+whisper.objc
+Minimal Obj-C application for automatic offline speech recognition. The inference runs locally, on-device.
+
+ whisper-iphone-13-mini-2.mp4 
+Real-time transcription demo:
+
+ whisper-iphone-13-mini-3.mp4 
+Usage
+git clone https://github.com/ggerganov/whisper.cpp
+open whisper.cpp/examples/whisper.objc/whisper.objc.xcodeproj/
+
+# if you don't want to convert a Core ML model, you can skip this step by create dummy model
+mkdir models/ggml-base.en-encoder.mlmodelc
+Make sure to build the project in Release:
+
+image
+
+Also, don't forget to add the -DGGML_USE_ACCELERATE compiler flag for ggml.c in Build Phases. This can significantly improve the performance of the transcription:
+
+image
+
+Core ML
+If you want to enable Core ML support, you can add the -DWHISPER_USE_COREML -DWHISPER_COREML_ALLOW_FALLBACK compiler flag for whisper.cpp in Build Phases:
+
+image
+Then follow the Core ML support section of readme for convert the model.
+
+In this project, it also added -O3 -DNDEBUG to Other C Flags, but adding flags to app proj is not ideal in real world (applies to all C/C++ files), consider splitting xcodeproj in workspace in your own project.
+
+Metal
+You can also enable Metal to make the inference run on the GPU of your device. This might or might not be more efficient compared to Core ML depending on the model and device that you use.
+
+To enable Metal, just add -DGGML_USE_METAL instead off the -DWHISPER_USE_COREML flag and you are ready. This will make both the Encoder and the Decoder run on the GPU.
+
+If you want to run the Encoder with Core ML and the Decoder with Metal then simply add both -DWHISPER_USE_COREML -DGGML_USE_METAL flags. That's all!
+
+
+# My model files examples
 ggml-base.en-encoder.mlmodelc
 coreml-encoder-base.en.mlpackage
