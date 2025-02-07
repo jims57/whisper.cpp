@@ -1,0 +1,20 @@
+whisper_model_load: adding 1607 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:      CPU total size =    77.11 MB
+whisper_model_load: model size    =   77.11 MB
+whisper_backend_init_gpu: no GPU found
+whisper_init_state: kv self size  =    3.15 MB
+whisper_init_state: kv cross size =    9.44 MB
+whisper_init_state: kv pad  size  =    2.36 MB
+whisper_init_state: loading Core ML model from '/private/var/containers/Bundle/Application/79B64FE9-4403-4BD9-A031-63A56839210A/whisper.objc.app/ggml-tiny.en-encoder.mlmodelc'
+whisper_init_state: first run on a device may take a while ...
+
+
+1. iOS devices like the iPhone 12 Pro do indeed have powerful GPUs (Apple GPU in the A14 Bionic chip), but whisper.cpp doesn't use the GPU directly on iOS. Instead, it uses Core ML for hardware acceleration, which is Apple's framework for machine learning that automatically utilizes the available hardware resources.
+
+In your log, you can see this line:
+whisper_init_state: loading Core ML model from '/private/var/containers/Bundle/Application/79B64FE9-4403-4BD9-A031-63A56839210A/whisper.objc.app/ggml-tiny.en-encoder.mlmodelc'
+This shows that the application is using Core ML, which will automatically leverage the Neural Engine and GPU on your iPhone 12 Pro for acceleration.
+
+The "no GPU found" message is more relevant for desktop systems where whisper.cpp might use CUDA or other direct GPU computing frameworks. On iOS, Core ML handles the hardware acceleration automatically, so you don't need to worry about explicit GPU initialization.
+Your model is still getting hardware acceleration through Core ML, even though the GPU isn't being accessed directly by whisper.cpp. This is actually the recommended way to handle ML workloads on iOS devices, as it allows Apple to optimize the usage of all available hardware (CPU, GPU, and Neural Engine) based on the specific device and workload.
