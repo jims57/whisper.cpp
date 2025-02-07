@@ -50,7 +50,7 @@ void AudioInputCallback(void * inUserData,
     // whisper.cpp initialization
     {
         // load the model
-        // 【Jimmy】 关于模型名和大小说明，见：https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/model-type-and-size.md
+        // 【Jimmy】 关于模型名和大小说明，见：https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md
         
         
         //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-tiny.en" ofType:@"bin"];
