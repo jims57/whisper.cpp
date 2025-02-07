@@ -1,4 +1,4 @@
-# 模型名与大小
+# 一、模型名与大小
 
 | 模型名称 | 磁盘空间 | 内存占用 | 适用设备 | 说明 |
 |---------|----------|----------|----------|------|
@@ -22,7 +22,7 @@
 5. 关于选择哪些模型的逻辑，后台会根据传参自动选择，并提供下载链接。
 6. 下载模型的流程图，见：<a href="https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE" target="_blank">https://docs.qq.com/flowchart/DZHhpTEdLcW9lT2VE</a>
 
-# 开发注意事项：
+# 二、开发注意事项：
 ## 1. 测试多语言模型（如tiny、small等没有.en后缀的模型）时，记得要对应修改语言编码。
 <img width="1096" alt="image" src="https://github.com/user-attachments/assets/784bb829-4699-42e3-9bed-adcbfffdf38a" />
 
@@ -46,7 +46,7 @@
 
 
 
-# 语言编码（共99种语言）：
+# 三、语言编码（共99种语言）：
 | 代码 | 语言 |
 |------|------|
 | af | 南非荷兰语 |
@@ -148,4 +148,3 @@
 | yi | 意第绪语 |
 | yo | 约鲁巴语 |
 | zh | 中文 |
-
