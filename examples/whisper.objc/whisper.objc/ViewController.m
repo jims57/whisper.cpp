@@ -50,16 +50,19 @@ void AudioInputCallback(void * inUserData,
     // whisper.cpp initialization
     {
         // load the model
-        // 【Jimmy】 关于模型名和大小说明，见：
-        NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-tiny.en" ofType:@"bin"];
-        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-base.en" ofType:@"bin"];
-        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-base.en" ofType:@"bin"];
+        // 【Jimmy】 关于模型名和大小说明，见：https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/model-type-and-size.md
+        
+        
+        //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-tiny.en" ofType:@"bin"];
+        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-base.en" ofType:@"bin"];
+        // NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-small.en" ofType:@"bin"];
         
         
         //[Jimmy]
         //
-        NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"ggml-tiny.en" ofType:@"bin"];
-        
+        NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-tiny" ofType:@"bin"];
+        //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-base" ofType:@"bin"];
+        //NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"models/ggml-small" ofType:@"bin"];
         
 
         // check if the model exists
