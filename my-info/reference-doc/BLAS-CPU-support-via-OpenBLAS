@@ -1,0 +1,7 @@
+BLAS CPU support via OpenBLAS
+Encoder processing can be accelerated on the CPU via OpenBLAS. First, make sure you have installed openblas: https://www.openblas.net/
+
+Now build whisper.cpp with OpenBLAS support:
+
+cmake -B build -DGGML_BLAS=1
+cmake --build build -j --config Release
