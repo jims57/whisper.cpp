@@ -27,3 +27,5 @@ Here's a basic example of what you might add to your Android manifest:
 <uses-feature android:name="android.hardware.vulkan.level" android:version="0" android:required="true" />
 
 Note: While Vulkan is recommended for better performance, if you're targeting very old devices or if battery life is a critical concern, OpenBLAS might be a safer choice. However, for most modern Android applications, Vulkan will provide better inference performance.
+
+
