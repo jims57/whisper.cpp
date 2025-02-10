@@ -1,0 +1,93 @@
+Java JNI bindings for Whisper
+This package provides Java JNI bindings for whisper.cpp. They have been tested on:
+
+Darwin (OS X) 12.6 on x64_64
+Ubuntu on x86_64
+Windows on x86_64
+The "low level" bindings are in WhisperCppJnaLibrary. The most simple usage is as follows:
+
+JNA (Java Native Access) is a library that provides Java programs with easy access to native shared libraries without writing JNI code. It will attempt to load the whispercpp shared library from:
+
+jna.library.path
+jna.platform.library
+~/Library/Frameworks
+/Library/Frameworks
+/System/Library/Frameworks
+classpath
+import io.github.ggerganov.whispercpp.WhisperCpp;
+
+public class Example {
+
+    public static void main(String[] args) {
+        WhisperCpp whisper = new WhisperCpp();
+        // By default, models are loaded from ~/.cache/whisper/ and are usually named "ggml-${name}.bin"
+        // or you can provide the absolute path to the model file.
+        long context = whisper.initContext("base.en");
+        try {
+            var whisperParams = whisper.getFullDefaultParams(WhisperSamplingStrategy.WHISPER_SAMPLING_GREEDY);
+            // custom configuration if required
+            whisperParams.temperature_inc = 0f;  // Temperature controls randomness in the model's predictions. Higher values (0.1-1.0) make output more creative but less accurate.
+                                               // Temperature increment adds randomness with each retry if transcription fails. Here we keep it at 0 for consistent, accurate results.
+            
+            var samples = readAudio(); // divide each value by 32767.0f to normalize 16-bit PCM audio samples to float values between -1.0 and 1.0
+            whisper.fullTranscribe(whisperParams, samples);
+            
+            int segmentCount = whisper.getTextSegmentCount(context);
+            for (int i = 0; i < segmentCount; i++) {
+                String text = whisper.getTextSegment(context, i);
+                System.out.println(segment.getText());
+            }
+        } finally {
+             whisper.freeContext(context);
+        }
+     }
+}
+Building & Testing
+In order to build, you need to have the JDK 8 or higher installed. Run the tests with:
+
+git clone https://github.com/ggerganov/whisper.cpp.git
+cd whisper.cpp/bindings/java
+
+./gradlew build
+You need to have the whisper library in your JNA library path. On Windows the dll is included in the jar and you can update it:
+
+copy /y ..\..\build\bin\Release\whisper.dll build\generated\resources\main\win32-x86-64\whisper.dll
+License
+The license for the Java bindings is the same as the license for the rest of the whisper.cpp project, which is the MIT License. See the LICENSE file for more details.
+
+
+#==== Ask AI 1 ====
+Android Support & Usage
+
+While these Java JNI bindings can theoretically work on Android since they use JNA (Java Native Access), there are some important considerations:
+
+1. Native Library Compilation:
+   - You'll need to compile the whisper.cpp native library specifically for Android's supported architectures (arm64-v8a, armeabi-v7a, x86, x86_64)
+   - This requires using the Android NDK and setting up proper CMake configurations
+
+2. Performance Considerations:
+   - Mobile devices have limited computational resources compared to desktop/server environments
+   - Model size and inference speed may be impacted
+   - Consider using smaller models (e.g., tiny or base) for better performance
+
+3. Implementation Steps for Android:
+   a. Add JNA dependency to your Android project:
+      ```gradle
+      dependencies {
+          implementation 'net.java.dev.jna:jna:5.12.1@aar'
+      }
+      ```
+   
+   b. Place compiled native libraries in appropriate Android project directories:
+      app/src/main/jniLibs/arm64-v8a/libwhisper.so
+      app/src/main/jniLibs/armeabi-v7a/libwhisper.so
+      etc.
+
+   c. Bundle your chosen model with the app or download it on first run
+
+For better Android integration, you might want to consider:
+- Using the official C++ implementation directly through Android NDK
+- Using other Android-specific speech recognition solutions
+- Or exploring dedicated Android bindings/ports of whisper.cpp
+
+The solution described in this document is primarily designed for desktop Java applications, though it can be adapted for Android with additional work.
