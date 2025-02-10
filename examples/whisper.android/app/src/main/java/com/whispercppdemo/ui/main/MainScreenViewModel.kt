@@ -143,7 +143,10 @@ class MainScreenViewModel(private val application: Application) : ViewModel() {
             printMessage("${data.size / (16000 / 1000)} ms\n")
             printMessage("Transcribing data...\n")
             val start = System.currentTimeMillis()
-            val text = whisperContext?.transcribeData(data)
+
+            // 相关的编码编码，详见（注：在GitHub，请用VPN查看）： https://github.com/jims57/whisper.cpp/blob/master/my-info/my-doc/how-to-use-model.md#%E4%B8%89%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A0%81%E5%85%B199%E7%A7%8D%E8%AF%AD%E8%A8%80
+            val text = whisperContext?.transcribeData(data, "ar", true)
+
             val elapsed = System.currentTimeMillis() - start
             printMessage("Done ($elapsed ms): \n$text\n")
         } catch (e: Exception) {

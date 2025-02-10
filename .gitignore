@@ -58,3 +58,5 @@ cmake-build-debug/
 .cxx/
 .gradle/
 local.properties
+/examples/whisper.android/app/src/main/assets
+/examples/whisper.android/app/src/main/assets/models

@@ -163,20 +163,22 @@ Java_com_whispercpp_whisper_WhisperLib_00024Companion_freeContext(
 
 JNIEXPORT void JNICALL
 Java_com_whispercpp_whisper_WhisperLib_00024Companion_fullTranscribe(
-        JNIEnv *env, jobject thiz, jlong context_ptr, jint num_threads, jfloatArray audio_data) {
+        JNIEnv *env, jobject thiz, jlong context_ptr, jint num_threads, jfloatArray audio_data, jstring language) {
     UNUSED(thiz);
     struct whisper_context *context = (struct whisper_context *) context_ptr;
     jfloat *audio_data_arr = (*env)->GetFloatArrayElements(env, audio_data, NULL);
     const jsize audio_data_length = (*env)->GetArrayLength(env, audio_data);
+    
+    // Get the language string from Java
+    const char *lang = (*env)->GetStringUTFChars(env, language, NULL);
 
-    // The below adapted from the Objective-C iOS sample
     struct whisper_full_params params = whisper_full_default_params(WHISPER_SAMPLING_GREEDY);
     params.print_realtime = true;
     params.print_progress = false;
     params.print_timestamps = true;
     params.print_special = false;
     params.translate = false;
-    params.language = "en";
+    params.language = lang;  // Set the language parameter
     params.n_threads = num_threads;
     params.offset_ms = 0;
     params.no_context = true;
@@ -190,6 +192,9 @@ Java_com_whispercpp_whisper_WhisperLib_00024Companion_fullTranscribe(
     } else {
         whisper_print_timings(context);
     }
+    
+    // Release the language string
+    (*env)->ReleaseStringUTFChars(env, language, lang);
     (*env)->ReleaseFloatArrayElements(env, audio_data, audio_data_arr, JNI_ABORT);
 }
 
