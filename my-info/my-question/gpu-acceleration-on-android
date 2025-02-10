@@ -1,0 +1,29 @@
+I'll help explain the differences between OpenBLAS and Vulkan acceleration for whisper.cpp on Android and recommend the better option.
+OpenBLAS vs Vulkan Comparison:
+OpenBLAS
+CPU-based acceleration using optimized linear algebra operations
+Works only on CPU, but highly optimized for mathematical computations
+Generally easier to implement and more stable
+May have limited performance improvement on mobile devices due to CPU constraints
+Better battery efficiency compared to GPU solutions
+Vulkan
+GPU-based acceleration that works across different graphics hardware vendors
+Can provide significant performance improvements by utilizing the device's GPU
+Works on most modern Android devices as Vulkan is widely supported
+May consume more battery power due to GPU usage
+Can be more complex to implement but offers better performance potential
+Recommendation for Android:
+For Android devices, I recommend going with the Vulkan implementation because:
+Most modern Android devices have capable GPUs with Vulkan support
+GPU acceleration typically provides better performance for neural network inference
+Android's GPU is often underutilized compared to CPU, so you can take advantage of this resource
+Vulkan is a modern, cross-platform API that's well-supported on Android
+To implement Vulkan support for your Android build, you'll need to:
+Make sure your Android NDK setup includes Vulkan headers and libraries
+Enable Vulkan support in your CMake configuration
+Ensure your app requests Vulkan permissions in the Android manifest
+Here's a basic example of what you might add to your Android manifest:
+<uses-feature android:name="android.hardware.vulkan.version" android:version="0x400003" android:required="true" />
+<uses-feature android:name="android.hardware.vulkan.level" android:version="0" android:required="true" />
+
+Note: While Vulkan is recommended for better performance, if you're targeting very old devices or if battery life is a critical concern, OpenBLAS might be a safer choice. However, for most modern Android applications, Vulkan will provide better inference performance.
