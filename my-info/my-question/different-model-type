@@ -1,6 +1,76 @@
-Available models:
-    tiny tiny.en tiny-q5_1 tiny.en-q5_1 tiny-q8_0
-    base base.en base-q5_1 base.en-q5_1 base-q8_0
-    small small.en small.en-tdrz small-q5_1 small.en-q5_1 small-q8_0
-    medium medium.en medium-q5_0 medium.en-q5_0 medium-q8_0
-    large-v1 large-v2 large-v2-q5_0 large-v2-q8_0 large-v3 large-v3-q5_0 large-v3-turbo large-v3-turbo-q5_0 large-v3-turbo-q8_0
+Available Whisper.cpp Models and Their Use Cases:
+
+1. Model Size Categories (from smallest to largest):
+- Tiny: Smallest model, fastest but least accurate. Best for quick tests and resource-constrained devices
+- Base: Good balance for simple transcription tasks
+- Small: Better accuracy than Base, still relatively fast
+- Medium: High accuracy, reasonable speed
+- Large: Best accuracy but slowest and most resource intensive
+
+2. Language Variants:
+- Standard (e.g. tiny): Supports multiple languages
+- .en (e.g. tiny.en): English-only models, more accurate for English but can't handle other languages
+- .en-tdrz: Special model optimized for English real-time transcription
+
+3. Quantization Variants:
+- Regular (no suffix): Original FP16 models
+- q8_0: 8-bit quantized, good balance of size/quality 
+- q5_1/q5_0: 5-bit quantized, smallest size but slight quality loss
+- q4_0/q4_1: 4-bit quantized, extremely small size but more quality degradation
+- q3_K: 3-bit quantized using K-means clustering, experimental
+- q2_K: 2-bit quantized using K-means clustering, experimental
+Note: Lower bit quantization (q4 and below) may have significant accuracy impact
+ 
+4. Large Model Versions:
+- large-v1: Original large model
+- large-v2: Improved version with better accuracy
+- large-v3: Latest version with best overall performance
+- large-v3-turbo: Optimized for faster inference
+
+Recommendations:
+- Mobile/Edge devices: Use tiny/base models with q5_1 quantization
+- Desktop/Server: Medium or large-v3 models
+- Real-time applications: Use .en-tdrz or turbo variants
+- Offline high-quality: Use large-v3 without quantization
+
+Recommended Model Configuration for Mobile ASR:
+
+For iOS and Android offline ASR, here are the optimal configurations balancing quality and speed:
+
+Primary Recommendation:
+- Model: medium.en 
+- Quantization: q5_1
+- Rationale:
+  - Medium size provides good accuracy while still being mobile-friendly
+  - English-only (.en) model is more efficient if you only need English
+  - q5_1 quantization reduces model size by ~5x with minimal quality loss
+  - Works well within mobile memory constraints
+  - Provides ~2-3x faster inference than large models
+
+Alternative Options:
+
+1. For Higher Quality (if device has sufficient resources):
+   - Model: large-v3.en
+   - Quantization: q8_0 
+   - Benefits: Best possible accuracy
+   - Drawbacks: Slower inference, larger size (~4GB)
+
+2. For Faster Speed (if lower accuracy acceptable):
+   - Model: small.en
+   - Quantization: q5_1
+   - Benefits: ~2x faster than medium
+   - Drawbacks: Lower accuracy than medium
+
+3. For Minimum Size/Maximum Speed:
+   - Model: base.en
+   - Quantization: q5_0
+   - Benefits: Smallest size, fastest inference
+   - Drawbacks: Noticeably lower accuracy
+
+Implementation Notes:
+- Test the medium.en-q5_1 model first as baseline
+- Profile performance on your target devices
+- If speed is insufficient, step down to small.en
+- If quality is insufficient and device allows, step up to large-v3
+- Consider providing model options in settings for users with different devices
+
