@@ -47,7 +47,10 @@ class MainScreenViewModel(private val application: Application) : ViewModel() {
     }
 
     private suspend fun printSystemInfo() {
-        printMessage(String.format("System Info: %s\n", com.whispercpp.whisper.WhisperContext.getSystemInfo()))
+        val systemInfo = com.whispercpp.whisper.WhisperContext.getSystemInfo()
+        val hasGPU = com.whispercpp.whisper.WhisperContext.hasGPUDevice()
+        val gpuInfo = if (hasGPU) "GPU is available" else "No GPU detected"
+        printMessage(String.format("System Info: %s\nGPU Status: %s\n", systemInfo, gpuInfo))
     }
 
     private suspend fun loadData() {

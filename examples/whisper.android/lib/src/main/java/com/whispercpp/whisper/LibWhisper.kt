@@ -86,6 +86,10 @@ class WhisperContext private constructor(private var ptr: Long) {
         fun getSystemInfo(): String {
             return WhisperLib.getSystemInfo()
         }
+
+        fun hasGPUDevice(): Boolean {
+            return WhisperLib.hasGPUDevice()
+        }
     }
 }
 
@@ -142,6 +146,7 @@ private class WhisperLib {
         external fun getSystemInfo(): String
         external fun benchMemcpy(nthread: Int): String
         external fun benchGgmlMulMat(nthread: Int): String
+        external fun hasGPUDevice(): Boolean
     }
 }
 

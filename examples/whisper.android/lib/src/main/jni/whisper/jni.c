@@ -260,3 +260,22 @@ Java_com_whispercpp_whisper_WhisperLib_00024Companion_benchGgmlMulMat(JNIEnv *en
     jstring string = (*env)->NewStringUTF(env, bench_ggml_mul_mat);
     return string;
 }
+
+JNIEXPORT jboolean JNICALL
+Java_com_whispercpp_whisper_WhisperLib_00024Companion_hasGPUDevice(
+        JNIEnv *env, jobject thiz) {
+    UNUSED(env);
+    UNUSED(thiz);
+    
+    // Check if GGML was compiled with GPU support and if a GPU is available
+    // CUBLAS is NVIDIA's GPU-accelerated implementation of BLAS (Basic Linear Algebra Subprograms)
+    // It provides highly optimized matrix/vector operations on NVIDIA GPUs
+    // 
+    // CLBlast is an OpenCL BLAS library but most Android phones don't support OpenCL
+    // While some high-end phones have OpenCL support, it's not commonly available
+    #if defined(GGML_USE_CUBLAS) || defined(GGML_USE_CLBLAST)
+        return JNI_TRUE;  // GPU support is compiled in
+    #else
+        return JNI_FALSE; // No GPU support
+    #endif
+}
